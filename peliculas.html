@@ -1,0 +1,982 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Buscador MegaPlay!</title>
+
+    <script src="https://kit.fontawesome.com/41bcea2ae3.js" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="css/principal.css">
+    <link rel="stylesheet" href="css/blog.css">
+
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+
+<style type="text/css">
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,200i,300,300i,400,400i,600,600i,700,700i,900,900i&display=swap');
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+body{
+    background: #020202;
+}
+
+header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 80px;
+    background: #020202;
+    box-shadow: 0 4px 25px -22px black;
+    z-index: 10;
+}
+
+.headerLogo img{
+    align-items: left;
+}
+
+.menu{
+    display: inline-flex;
+    justify-content: flex-start;
+    
+}
+
+.menu p{
+    color: #fff;
+    font-size: 30px;
+    margin-top: 30px;
+    justify-content: space-around;
+    padding-right: 20px;
+}
+
+
+
+.header-content{
+    max-width: 1200px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+}
+
+.logo img{
+    height: 100px;
+    margin: -5px;
+    
+    
+    
+    
+    
+}
+
+.logo h1 b{
+    color: #46a2fd;
+}
+
+
+.menu {
+    height: 80px;
+    margin-right: 60px;
+}
+
+.menu nav{
+    height: 100%;
+}
+
+.menu nav ul{
+    height: 100%;
+    display: flex;
+    list-style: none;
+}
+
+#icon-menu{
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    right: 20px;
+    top: 16px;
+    padding: 10px;
+    font-size: 20px;
+    background: #eeeeeefa;
+    border-radius: 100%;
+    color: #dbd8d8;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+#icon-menu:hover{
+    opacity: 0.8;
+}
+
+/*Buscador de contenido*/
+
+#ctn-icon-search{
+    position: absolute;
+    right: -20px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#ctn-icon-search i{
+    font-size: 30px;
+    color: #e7e2e2;
+    cursor: pointer;
+    transition: all 300ms;
+}
+
+#ctn-icon-search i:hover{
+    color: #46a2fd;
+}
+
+
+#ctn-bars-search{
+    position: fixed;
+    top: -10px;
+    width: 100%;
+    background: transparent;
+    padding: 20px;
+    z-index: 9;
+    transition: all 600ms;
+}
+
+#ctn-bars-search input{
+    display: block;
+    width: 1200px;
+    margin: auto;
+    padding: 10px;
+    font-size: 18px;
+    outline: 0;
+}
+
+#box-search{
+    position: fixed;
+    top: 165px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 1200px;
+    background: #fff;
+    z-index: 8;
+    overflow: hidden;
+    display: none;
+}
+
+#box-search li a{
+    font-size: 22px;
+    text-decoration: none;
+    display: block;
+    width: 1200px;
+    color: #777777;
+    padding: 12px 20px;
+    line-height: 5px;
+}
+
+#box-search li a:hover{
+    background: #f3f3f3;
+    color: blue;
+}
+
+#box-search li a i{
+    margin-right: 10px;
+    color: #777777;
+}
+
+
+#cover-ctn-search{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    left: 0;
+    background: rgba(0,0,0,0.5);
+    z-index: 7;
+    display: none;
+}
+
+
+
+
+
+/* Responsive Design - adaptable a dispositivos moviles*/
+
+@media screen and (max-width: 1220px){
+
+    .header-content,
+    .container-footer footer{
+        max-width: 1000px;
+        padding: 0 20px;
+    }
+
+    #ctn-bars-search,
+    #ctn-bars-search input,
+    #box-search{
+        width: 100%;
+    }
+
+}
+
+
+
+@media screen and (max-width: 800px){
+
+    body{
+        overflow-x: hidden;
+    }
+
+    .container-all{
+        transition: all 300ms cubic-bezier(1,0,0,1);
+    }
+
+    .move-container-all{
+        transform: translateX(300px);
+    }
+
+/*Portada*/
+
+
+.blog-container-cover{
+    width: 100%;
+    height: 500px;
+    position: relative;
+    margin-top: 80px;
+    background-image: url(../img/img3.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.blog-container-cover:before{
+    content: '';
+    width: 100%;
+    height: 100%;
+    background: rgba(25, 81, 235, 0.76);
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.container-info-cover{
+    max-width: 900px;
+    height: 90px;
+    margin: auto;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+}
+
+</style>
+
+
+</head>
+<body>
+
+    <!--Header - menu-->
+    <header>
+
+        <div class="header-content">    
+    <div class="logo">
+        <img src="https://dl.dropboxusercontent.com/s/er870zabxgodb4x/netprime%204.png" alt="Netprime" class="headerLogo">
+    </div>            
+            <div class="menu" id="show-menu">
+                <a href="#"><p>Inicio</p></a>
+                <a href="#"><p>peliculas</p></a>
+                <a href="#"><p>Series</p></a>
+                <a href="#"><p>Documentales</p></a>
+            </div>
+
+            <div id="ctn-icon-search">
+                <i class="fas fa-search" id="icon-search"></i>
+            </div>
+
+        </div>
+
+        <div id="icon-menu">
+            <i class="fas fa-bars"></i>
+        </div>
+
+    </header>
+
+    <div id="ctn-bars-search">
+        <input type="text" id="inputSearch" placeholder="Buscar.">
+    </div>
+
+    <ul id="box-search">
+
+
+        <li><a href="go:amenazapro"><i class="fas fa-search"></i>Amenaza en lo profundo</a></li>
+        <li><a href="go:bajocero"><i class="fas fa-search"></i>Bajo cero</a></li>
+        <li><a href="go:centinela"><i class="fas fa-search"></i>Centinela</a></li>
+        <li><a href="go:extraction"><i class="fas fa-search"></i>Extraction</a></li>
+        <li><a href="go:fueracontr"><i class="fas fa-search"></i>Fuera de control</a></li>
+        <li><a href="go:johnwick"><i class="fas fa-search"></i>John wick 1</a></li>
+        <li><a href="go:blackjack"><i class="fas fa-search"></i>Blackjack</a></li>
+        <li><a href="go:estacionz"><i class="fas fa-search"></i>Estacion zombie</a></li>
+        <li><a href="go:mutantes"><i class="fas fa-search"></i>Nuevos mutantes</a></li>
+        <li><a href="go:labestia"><i class="fas fa-search"></i>La bestia</a></li>
+        <li><a href="go:ladeuda"><i class="fas fa-search"></i>La deuda</a></li>
+        <li><a href="go:legacy"><i class="fas fa-search"></i>Legacy</a></li>
+        <li><a href="go:diascrimen"><i class="fas fa-search"></i>Los ultimos dias del crimen</a></li>
+        <li><a href="go:lacaceria"><i class="fas fa-search"></i>La caceria</a></li>
+        <li><a href="go:rogue"><i class="fas fa-search"></i>Rogue</a></li>
+        <li><a href="go:peqdetalle"><i class="fas fa-search"></i>Pequeños detalles</a></li>
+        <li><a href="go:risinhigh"><i class="fas fa-search"></i>Rising high</a></li>
+        <li><a href="go:onenight"><i class="fas fa-search"></i>One night in bangkok</a></li>
+        <li><a href="go:spenser"><i class="fas fa-search"></i>Spenser confidencial</a></li>
+        <li><a href="go:survivenig"><i class="fas fa-search"></i>Sobrevive la noche</a></li>
+        <li><a href="go:tenet"><i class="fas fa-search"></i>Tenet</a></li>
+        <li><a href="go:auschwitz"><i class="fas fa-search"></i>Escape de auschwitz</a></li>
+        <li><a href="go:gentlemen"><i class="fas fa-search"></i>Los caballeros del crimen</a></li>
+        <li><a href="go:thelegion"><i class="fas fa-search"></i>La legion</a></li>
+        <li><a href="go:thequarry"><i class="fas fa-search"></i>The quarry</a></li>
+        <li><a href="go:thesilenci"><i class="fas fa-search"></i>The silencing</a></li>
+        <li><a href="go:thetax"><i class="fas fa-search"></i>The tax collector</a></li>
+        <li><a href="go:viper"><i class="fas fa-search"></i>The viper</a></li>
+        <li><a href="go:anna"><i class="fas fa-search"></i>Anna</a></li>
+        <li><a href="go:coldblood"><i class="fas fa-search"></i>Cold blood</a></li>
+        <li><a href="go:crypto"><i class="fas fa-search"></i>Crypto</a></li>
+        <li><a href="go:3022"><i class="fas fa-search"></i>3022</a></li>
+        <li><a href="go:hellboy"><i class="fas fa-search"></i>Hellboy</a></li>
+        <li><a href="go:insideman"><i class="fas fa-search"></i>Inside most wanted</a></li>
+        <li><a href="go:ithaca"><i class="fas fa-search"></i>Proyecto ithaca</a></li>
+        <li><a href="go:10minutos"><i class="fas fa-search"></i>10 minutos para morir</a></li>
+        <li><a href="go:astra"><i class="fas fa-search"></i>Ad astra</a></li>
+        <li><a href="go:adultsroom"><i class="fas fa-search"></i>Adults in the room</a></li>
+        <li><a href="go:ajustecuen"><i class="fas fa-search"></i>Ajuste de cuentas</a></li>
+        <li><a href="go:ashfall"><i class="fas fa-search"></i>Ashfall</a></li>
+        <li><a href="go:ataquefata"><i class="fas fa-search"></i>Ataque fatal</a></li>
+        <li><a href="go:backdraft"><i class="fas fa-search"></i>Backdraft</a></li>
+        <li><a href="go:bennett"><i class="fas fa-search"></i>Bennet war</a></li>
+        <li><a href="go:dangerclos"><i class="fas fa-search"></i>Danger close</a></li>
+        <li><a href="go:deadwater"><i class="fas fa-search"></i>Dead water</a></li>
+        <li><a href="go:dropa"><i class="fas fa-search"></i>Dropa</a></li>
+        <li><a href="go:elartico"><i class="fas fa-search"></i>El artico</a></li>
+        <li><a href="go:elchicano"><i class="fas fa-search"></i>El chicano</a></li>
+        <li><a href="go:elinforman"><i class="fas fa-search"></i>El informante</a></li>
+        <li><a href="go:juegoasesi"><i class="fas fa-search"></i>El juego del asesino</a></li>
+        <li><a href="go:elmensaje"><i class="fas fa-search"></i>El mensajero</a></li>
+        <li><a href="go:elninorey"><i class="fas fa-search"></i>El niño que no pudo ser rey</a></li>
+        <li><a href="go:eltunel"><i class="fas fa-search"></i>El tunel</a></li>
+        <li><a href="go:elultimohe"><i class="fas fa-search"></i>El utimo heroe</a></li>
+        <li><a href="go:vuelohalco"><i class="fas fa-search"></i>El vuelo del halcon</a></li>
+        <li><a href="go:ellipse"><i class="fas fa-search"></i>Ellipse</a></li>
+        <li><a href="go:emboscadaf"><i class="fas fa-search"></i>Emboscada final</a></li>
+        <li><a href="go:escuadronm"><i class="fas fa-search"></i>Escuadron de la muerte</a></li>
+        <li><a href="go:exit"><i class="fas fa-search"></i>Exit</a></li>
+        <li><a href="go:stevemcque"><i class="fas fa-search"></i>Finding steve mcquenn</a></li>
+        <li><a href="go:fueradeley"><i class="fas fa-search"></i>Fuera de la ley</a></li>
+        <li><a href="go:comandogen"><i class="fas fa-search"></i>Comando general</a></li>
+        <li><a href="go:islagrande"><i class="fas fa-search"></i>Isla grande</a></li>
+        <li><a href="go:hacker"><i class="fas fa-search"></i>Hacker</a></li>
+        <li><a href="go:hardnight"><i class="fas fa-search"></i>Hardnight falling</a></li>
+        <li><a href="go:hellborder"><i class="fas fa-search"></i>Hell on the border</a></li>
+        <li><a href="go:hollowpoin"><i class="fas fa-search"></i>Hollow point</a></li>
+        <li><a href="go:jaqueasesi"><i class="fas fa-search"></i>Jaque al asesino</a></li>
+        <li><a href="go:conquistas"><i class="fas fa-search"></i>La conquista de siberia</a></li>
+        <li><a href="go:reinascrim"><i class="fas fa-search"></i>Las reinas del crimen</a></li>
+        <li><a href="go:midway"><i class="fas fa-search"></i>Midway-ataque en altamar</a></li>
+        <li><a href="go:narcosoldi"><i class="fas fa-search"></i>Narco soldiers</a></li>
+        <li><a href="go:shadowolve"><i class="fas fa-search"></i>Shadow wolves</a></li>
+        <li><a href="go:soldadoano"><i class="fas fa-search"></i>Soldado anonimo-ley de retorno</a></li>
+        <li><a href="go:sospechamo"><i class="fas fa-search"></i>Sospecha mortal</a></li>
+
+
+
+        <li><a href="go:raya"><i class="fas fa-search"></i>Raya</a></li>
+        <li><a href="go:mulan"><i class="fas fa-search"></i>Mulan</a></li>
+        <li><a href="go:trouble"><i class="fas fa-search"></i>Trouble-de la mansion a la calle</a></li>
+        <li><a href="go:reyleon"><i class="fas fa-search"></i>El rey leon</a></li>
+        <li><a href="go:erahielo"><i class="fas fa-search"></i>La era de hielo 1</a></li>
+        <li><a href="go:toystory"><i class="fas fa-search"></i>Toy story 1</a></li>
+        <li><a href="go:panales2"><i class="fas fa-search"></i>Un jefe en pañales 2</a></li>
+        <li><a href="go:aladdin"><i class="fas fa-search"></i>Aladdin</a></li>
+        <li><a href="go:damavagabu"><i class="fas fa-search"></i>La dama y el vagabundo</a></li>
+        <li><a href="go:familiaada"><i class="fas fa-search"></i>La familia addams</a></li>
+        <li><a href="go:pasosecret"><i class="fas fa-search"></i>La leyenda del paso secreto</a></li>
+        <li><a href="go:mascotas1"><i class="fas fa-search"></i>La vida secreta de tus mascotas 1</a></li>
+        <li><a href="go:mascotas2"><i class="fas fa-search"></i>La vida secreta de tus mascotas 2</a></li>
+        <li><a href="go:malefica1"><i class="fas fa-search"></i>Malefica 1</a></li>
+        <li><a href="go:malefica2"><i class="fas fa-search"></i>Malefica 2</a></li>
+        <li><a href="go:perdiopan"><i class="fas fa-search"></i>Quien perdio un panda</a></li>
+        <li><a href="go:robo"><i class="fas fa-search"></i>Robo</a></li>
+        <li><a href="go:stardoc"><i class="fas fa-search"></i>Stardoc y turbocat</a></li>
+        <li><a href="go:volandojun"><i class="fas fa-search"></i>Volando juntos</a></li>
+        <li><a href="go:zapatorojo"><i class="fas fa-search"></i>Zapatos rojos y los siete enanos</a></li>
+        <li><a href="go:atlantis"><i class="fas fa-search"></i>Atlantis el imperio perdido</a></li>
+        <li><a href="go:avenpanale"><i class="fas fa-search"></i>Aventuras en pañales</a></li>
+        <li><a href="go:buscanemo"><i class="fas fa-search"></i>Buscando a nemo</a></li>
+        <li><a href="go:home"><i class="fas fa-search"></i>Home</a></li>
+        <li><a href="go:102dalmata"><i class="fas fa-search"></i>102 dalmatas</a></li>
+        <li><a href="go:fiestasalc"><i class="fas fa-search"></i>Fiesta de salchichas</a></li>
+        <li><a href="go:aviones"><i class="fas fa-search"></i>Aviones</a></li>
+        <li><a href="go:vueltacasa"><i class="fas fa-search"></i>De vuelta a casa</a></li>
+        <li><a href="go:lemures"><i class="fas fa-search"></i>Isla de lemures-madagascar</a></li>
+        <li><a href="go:croods"><i class="fas fa-search"></i>Los croods</a></li>
+        <li><a href="go:megamente"><i class="fas fa-search"></i>Megamente</a></li>
+        <li><a href="go:peterrabbi"><i class="fas fa-search"></i>Peter rabbit</a></li>
+        <li><a href="go:shrek3"><i class="fas fa-search"></i>Shrek tercero</a></li>
+
+
+
+        <li><a href="go:bloodshot"><i class="fas fa-search"></i>Bloodshot</a></li>
+        <li><a href="go:mujermarav"><i class="fas fa-search"></i>La mujer maravilla</a></li>
+        <li><a href="go:capitan1"><i class="fas fa-search"></i>Capitan america-el primer vengador</a></li>
+        <li><a href="go:capimarvel"><i class="fas fa-search"></i>Capitana marvel</a></li>
+        <li><a href="go:daredevil"><i class="fas fa-search"></i>Daredevil</a></li>
+        <li><a href="go:drstrange"><i class="fas fa-search"></i>Doctor strange</a></li>
+        <li><a href="go:ligajusti"><i class="fas fa-search"></i>La liga de la justicia</a></li>
+        <li><a href="go:panteraneg"><i class="fas fa-search"></i>Pantera negra</a></li>
+        <li><a href="go:xmen1"><i class="fas fa-search"></i>X-men 1</a></li>
+        <li><a href="go:xmen2"><i class="fas fa-search"></i>X-men 2</a></li>
+        <li><a href="go:xmen3"><i class="fas fa-search"></i>X-men 3</a></li>
+        <li><a href="go:xmen4"><i class="fas fa-search"></i>X-men 4</a></li>
+        <li><a href="go:thor1"><i class="fas fa-search"></i>Thor 1</a></li>
+        <li><a href="go:thor2"><i class="fas fa-search"></i>Thor 2</a></li>
+        <li><a href="go:thor3"><i class="fas fa-search"></i>Thor 3</a></li>
+        <li><a href="go:thor4"><i class="fas fa-search"></i>Thor 4</a></li>
+
+
+
+
+        <li><a href="go:rf1"><i class="fas fa-search"></i>Rapidos y furiosos 1</a></li>
+        <li><a href="go:rf2"><i class="fas fa-search"></i>Rapidos y furiosos 2</a></li>
+        <li><a href="go:rf3"><i class="fas fa-search"></i>Rapidos y furiosos 3</a></li>
+        <li><a href="go:rf4"><i class="fas fa-search"></i>Rapidos y furiosos 4</a></li>
+        <li><a href="go:rf5"><i class="fas fa-search"></i>Rapidos y furiosos 5</a></li>
+        <li><a href="go:rf6"><i class="fas fa-search"></i>Rapidos y furiosos 6</a></li>
+        <li><a href="go:rf7"><i class="fas fa-search"></i>Rapidos y furiosos 7</a></li>
+        <li><a href="go:rf8"><i class="fas fa-search"></i>Rapidos y furiosos 8</a></li>
+        <li><a href="go:rfhs"><i class="fas fa-search"></i>Rapidos y furiosos hobbs y shaw</a></li>
+        <li><a href="go:harry1"><i class="fas fa-search"></i>Harry potter 1</a></li>
+        <li><a href="go:harry2"><i class="fas fa-search"></i>Harry potter 2</a></li>
+        <li><a href="go:harry3"><i class="fas fa-search"></i>Harry potter 3</a></li>
+        <li><a href="go:harry4"><i class="fas fa-search"></i>Harry potter 4</a></li>
+        <li><a href="go:harry5"><i class="fas fa-search"></i>Harry potter 5</a></li>
+        <li><a href="go:harry6"><i class="fas fa-search"></i>Harry potter 6</a></li>
+        <li><a href="go:harry7"><i class="fas fa-search"></i>Harry potter 7</a></li>
+        <li><a href="go:harry8"><i class="fas fa-search"></i>Harry potter 8</a></li>
+        <li><a href="go:piratas1"><i class="fas fa-search"></i>Piratas del caribe 1</a></li>
+        <li><a href="go:piratas2"><i class="fas fa-search"></i>Piratas del caribe 2</a></li>
+        <li><a href="go:piratas3"><i class="fas fa-search"></i>Piratas del caribe 3</a></li>
+        <li><a href="go:piratas4"><i class="fas fa-search"></i>Piratas del caribe 4</a></li>
+        <li><a href="go:piratas5"><i class="fas fa-search"></i>Piratas del caribe 5</a></li>
+        <li><a href="go:juegos1"><i class="fas fa-search"></i>Los juegos del hambre 1</a></li>
+        <li><a href="go:juegos2"><i class="fas fa-search"></i>Los juegos del hambre 2</a></li>
+        <li><a href="go:juegos3"><i class="fas fa-search"></i>Los juegos del hambre 3</a></li>
+        <li><a href="go:juegos4"><i class="fas fa-search"></i>Los juegos del hambre 4</a></li>
+        <li><a href="go:crepuscu1"><i class="fas fa-search"></i>Crepusculo 1</a></li>
+        <li><a href="go:crepuscu2"><i class="fas fa-search"></i>Crepusculo 2</a></li>
+        <li><a href="go:crepuscu3"><i class="fas fa-search"></i>Crepusculo 3</a></li>
+        <li><a href="go:crepuscu4"><i class="fas fa-search"></i>Crepusculo 4</a></li>
+        <li><a href="go:crepuscu5"><i class="fas fa-search"></i>Crepusculo 5</a></li>
+        <li><a href="go:destino1"><i class="fas fa-search"></i>Destino final 1</a></li>
+        <li><a href="go:destino2"><i class="fas fa-search"></i>Destino final 2</a></li>
+        <li><a href="go:destino3"><i class="fas fa-search"></i>Destino final 3</a></li>
+        <li><a href="go:destino4"><i class="fas fa-search"></i>Destino final 4</a></li>
+        <li><a href="go:destino5"><i class="fas fa-search"></i>Destino final 5</a></li>
+        <li><a href="go:mision1"><i class="fas fa-search"></i>Mision imposible 1</a></li>
+        <li><a href="go:mision2"><i class="fas fa-search"></i>Mision imposible 2</a></li>
+        <li><a href="go:mision3"><i class="fas fa-search"></i>Mision imposible 3</a></li>
+        <li><a href="go:mision4"><i class="fas fa-search"></i>Mision imposible 4</a></li>
+        <li><a href="go:mision5"><i class="fas fa-search"></i>Mision imposible 5</a></li>
+        <li><a href="go:mision6"><i class="fas fa-search"></i>Mision imposible 6</a></li>
+        <li><a href="go:xmen1"><i class="fas fa-search"></i>X-men 1</a></li>
+        <li><a href="go:xmen2"><i class="fas fa-search"></i>X-men 2</a></li>
+        <li><a href="go:xmen3"><i class="fas fa-search"></i>X-men 3</a></li>
+        <li><a href="go:xmen4"><i class="fas fa-search"></i>X-men 4</a></li>
+
+
+
+
+        <li><a href="go:nomanches1"><i class="fas fa-search"></i>No manches frida</a></li>
+        <li><a href="go:avdolittle"><i class="fas fa-search"></i>Las aventuras del doctor dolittle</a></li>
+        <li><a href="go:focus"><i class="fas fa-search"></i>Focus</a></li>
+        <li><a href="go:mascara"><i class="fas fa-search"></i>La mascara</a></li>
+        <li><a href="go:dedicadaex"><i class="fas fa-search"></i>Dedicada a mi ex</a></li>
+        <li><a href="go:primeravez"><i class="fas fa-search"></i>Como si fuera la primera vez</a></li>
+        <li><a href="go:sombrasneg"><i class="fas fa-search"></i>50 sombras negras</a></li>
+        <li><a href="go:vacamrbean"><i class="fas fa-search"></i>Las vacaciones de mr bean</a></li>
+        <li><a href="go:cambiopape"><i class="fas fa-search"></i>Cambio de papeles</a></li>
+        <li><a href="go:cindyregia"><i class="fas fa-search"></i>Cindy la regia</a></li>
+        <li><a href="go:patitacall"><i class="fas fa-search"></i>De patitas a la calle</a></li>
+        <li><a href="go:deported"><i class="fas fa-search"></i>Deported</a></li>
+        <li><a href="go:principeol"><i class="fas fa-search"></i>El principe olvidado</a></li>
+        <li><a href="go:aceventura"><i class="fas fa-search"></i>Ace ventura</a></li>
+        <li><a href="go:aceventura2"><i class="fas fa-search"></i>Ace ventura 2</a></li>
+        <li><a href="go:casi300"><i class="fas fa-search"></i>Casi 300</a></li>
+        <li><a href="go:testabuela"><i class="fas fa-search"></i>El testamento de la abuela</a></li>
+        <li><a href="go:guerrabuel"><i class="fas fa-search"></i>En guerra con mi abuelo</a></li>
+        <li><a href="go:felizhallo"><i class="fas fa-search"></i>Feliz hallowen scooby doo</a></li>
+        <li><a href="go:granespias"><i class="fas fa-search"></i>Grandes espias</a></li>
+        <li><a href="go:histolamen"><i class="fas fa-search"></i>Historias lamentables</a></li>
+        <li><a href="go:estacionfe"><i class="fas fa-search"></i>La estacion de la felicidad</a></li>
+        <li><a href="go:otramissy"><i class="fas fa-search"></i>La otra missy</a></li>
+        <li><a href="go:peleaestel"><i class="fas fa-search"></i>La pelea estelar</a></li>
+        <li><a href="go:locascambi"><i class="fas fa-search"></i>Locas por el cambio</a></li>
+        <li><a href="go:locoporti"><i class="fas fa-search"></i>Loco por ti</a></li>
+        <li><a href="go:locoporvos"><i class="fas fa-search"></i>Loco por vos</a></li>
+        <li><a href="go:lostortoli"><i class="fas fa-search"></i>Los tortolitos</a></li>
+        <li><a href="go:srcha"><i class="fas fa-search"></i>Que fue del señor cha</a></li>
+        <li><a href="go:simiamor"><i class="fas fa-search"></i>Si mi amor</a></li>
+        <li><a href="go:tqimbecil"><i class="fas fa-search"></i>Te quiero imbecil</a></li>
+        <li><a href="go:lastshift"><i class="fas fa-search"></i>The last shift</a></li>
+        <li><a href="go:swin"><i class="fas fa-search"></i>The swing of things</a></li>
+        <li><a href="go:hijomascar"><i class="fas fa-search"></i>El hijo de la mascara</a></li>
+        <li><a href="go:nomanches2"><i class="fas fa-search"></i>No manches frida 2</a></li>
+
+
+
+
+        <li><a href="go:yoantesde"><i class="fas fa-search"></i>Yo antes de ti</a></li>
+        <li><a href="go:titanic"><i class="fas fa-search"></i>Titanic</a></li>      
+        <li><a href="go:buscafelic"><i class="fas fa-search"></i>En busca de la felicidad</a></li>
+        <li><a href="go:extraordin"><i class="fas fa-search"></i>Extraordinario</a></li>
+        <li><a href="go:lacabana"><i class="fas fa-search"></i>La cabaña</a></li>
+        <li><a href="go:milagro7"><i class="fas fa-search"></i>Milagro en la celda 7</a></li>
+        <li><a href="go:bajosinsti"><i class="fas fa-search"></i>Bajos instintos</a></li>
+        <li><a href="go:cegadoluz"><i class="fas fa-search"></i>Cegado por la luz</a></li>
+        <li><a href="go:dueloherma"><i class="fas fa-search"></i>Duelo de hermanos</a></li>
+        <li><a href="go:nombrerosa"><i class="fas fa-search"></i>El nombre de la rosa</a></li>
+        <li><a href="go:ultimohomb"><i class="fas fa-search"></i>El ultimo hombre</a></li>
+        <li><a href="go:lagunazul"><i class="fas fa-search"></i>La laguna azul</a></li>
+        <li><a href="go:razonconti"><i class="fas fa-search"></i>La razon de estar contigo</a></li>
+        <li><a href="go:razoncont2"><i class="fas fa-search"></i>La razon de estar contigo 2</a></li>
+        <li><a href="go:lassie"><i class="fas fa-search"></i>Lassie</a></li>
+        <li><a href="go:romeojulie"><i class="fas fa-search"></i>Romeo y julieta</a></li>
+        <li><a href="go:angelausch"><i class="fas fa-search"></i>El angel de auschwitz</a></li>
+        <li><a href="go:12anosescl"><i class="fas fa-search"></i>12 años de esclavitud</a></li>
+        <li><a href="go:42"><i class="fas fa-search"></i>42</a></li>
+        <li><a href="go:127horas"><i class="fas fa-search"></i>127 horas</a></li>
+        <li><a href="go:3096dias"><i class="fas fa-search"></i>3096 dias</a></li>
+        <li><a href="go:adosmetros"><i class="fas fa-search"></i>A dos metros de ti</a></li>
+        <li><a href="go:pruebafueg"><i class="fas fa-search"></i>A prueba de fuego</a></li>
+        <li><a href="go:adios"><i class="fas fa-search"></i>Adios</a></li>
+        <li><a href="go:orgullopre"><i class="fas fa-search"></i>Orgullo y prejuicio</a></li>
+        <li><a href="go:atodos1"><i class="fas fa-search"></i>A todos los chicos-todavia te quiero</a></li>
+        <li><a href="go:atodos2"><i class="fas fa-search"></i>A todos los chicos-de los que me enamore</a></li>
+        <li><a href="go:atodos3"><i class="fas fa-search"></i>A todos los chicos-para siempre</a></li>
+        <li><a href="go:amorgarant"><i class="fas fa-search"></i>Amor garantizado</a></li>
+        <li><a href="go:bellezaneg"><i class="fas fa-search"></i>Belleza negra</a></li>
+        <li><a href="go:cielomedia"><i class="fas fa-search"></i>Cielo de media noche</a></li>
+        <li><a href="go:emma"><i class="fas fa-search"></i>Emma</a></li>
+        <li><a href="go:culpable"><i class="fas fa-search"></i>Culpable</a></li>
+        <li><a href="go:elbanquero"><i class="fas fa-search"></i>El banquero</a></li>
+        <li><a href="go:caminoregr"><i class="fas fa-search"></i>El camino de regreso</a></li>
+        <li><a href="go:llamasalva"><i class="fas fa-search"></i>El llamado salvaje</a></li>
+        <li><a href="go:robosiglo"><i class="fas fa-search"></i>El robo del siglo</a></li>
+        <li><a href="go:elsecreto"><i class="fas fa-search"></i>El secreto-atrevete a soñar</a></li>
+
+
+
+
+
+
+
+    </ul>
+
+    <div id="cover-ctn-search"></div>
+
+
+    <!--Portada-->
+
+    <div class="container-all" id="move-content">
+    
+    <div class="container-info-cover">
+            </div>
+    
+
+    
+
+
+    
+    <script src="js/script.js"></script>
+</body>
+
+
+
+
+
+
+
+<script type="text/javascript">
+document.getElementById("icon-menu").addEventListener("click", mostrar_menu);
+
+function mostrar_menu(){
+
+    document.getElementById("move-content").classList.toggle('move-container-all');
+    document.getElementById("show-menu").classList.toggle('show-lateral');
+}
+
+                            //Buscador de contenido
+
+
+//Ejecutando funciones
+document.getElementById("icon-search").addEventListener("click", mostrar_buscador);
+document.getElementById("cover-ctn-search").addEventListener("click", ocultar_buscador);
+
+//Declarando variables
+bars_search =       document.getElementById("ctn-bars-search");
+cover_ctn_search =  document.getElementById("cover-ctn-search");
+inputSearch =       document.getElementById("inputSearch");
+box_search =        document.getElementById("box-search");
+
+
+//Funcion para mostrar el buscador
+function mostrar_buscador(){
+
+    bars_search.style.top = "80px";
+    cover_ctn_search.style.display = "block";
+    inputSearch.focus();
+
+    if (inputSearch.value === ""){
+        box_search.style.display = "none";
+    }
+
+}
+
+//Funcion para ocultar el buscador
+function ocultar_buscador(){
+
+    bars_search.style.top = "-10px";
+    cover_ctn_search.style.display = "none";
+    inputSearch.value = "";
+    box_search.style.display = "none";
+
+}
+
+
+//Creando filtrado de busqueda
+
+document.getElementById("inputSearch").addEventListener("keyup", buscador_interno);
+
+function buscador_interno(){
+
+
+    filter = inputSearch.value.toUpperCase();
+    li = box_search.getElementsByTagName("li");
+
+    //Recorriendo elementos a filtrar mediante los "li"
+    for (i = 0; i < li.length; i++){
+
+        a = li[i].getElementsByTagName("a")[0];
+        textValue = a.textContent || a.innerText;
+
+        if(textValue.toUpperCase().indexOf(filter) > -1){
+
+            li[i].style.display = "";
+            box_search.style.display = "block";
+
+            if (inputSearch.value === ""){
+                box_search.style.display = "none";
+            }
+
+        }else{
+            li[i].style.display = "none";
+        }
+
+    }
+
+
+
+}
+
+</script>
+
+
+</html>
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="es" >
+<head>
+<meta charset="UTF-8">
+<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css'>
+<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css'>
+<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.5.9/slick.css'>
+<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.5.9/slick-theme.css'><link rel="stylesheet" href="./style.css">
+
+<style>
+*{
+  margin:0;
+  padding:0;
+}
+
+/*SCROLLBAR*/
+::-webkit-scrollbar {
+    width: 0px;
+}
+ 
+/* ::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.7); 
+    border-radius: 10px;
+}
+ 
+::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+  background:rgb(100,0,0);
+  -webkit-box-shadow: inset 0 0 6px rgba(100,0,0,0.5); 
+} */
+
+body{
+
+background: #000000;
+}
+.container{
+  background:transparent;
+  width:100%;
+  
+  position:relative;
+  overflow-Y:scroll;
+  margin-top:0em;
+  cursor: pointer;
+  cursor:pointer; 
+  cursor: hand;
+  cursor: move;
+}
+play{
+  left:0;
+  right:0;
+  height:3.5em;
+  display:flex;
+  flex-direction:row;
+  align-items:center;
+  justify-content:space-between;
+  
+}
+h3{
+  color:rgb(255,255,255);
+  font-size: 64px;
+  margin-top: -10px;
+}
+.single-item img{
+    width:100%;
+	
+	height:700px;
+    padding-right:2px;
+	display:flex;
+	
+	transition:0.10s;
+    border-radius: 10px;
+
+   
+}
+.single-item{
+  position:relative;
+}
+.slick-dots li button:before{
+  color:white;
+  opacity:1;
+  text-shadow:1px 2px 1px black;
+}
+.slick-dots li.slick-active button:before{
+  color:red;
+  opacity:1;
+}
+.variable-width  img{
+  width:300px;
+    
+  padding-right:7px;
+  border-radius: 5px;
+}
+.bt1{color:#fff;
+font-size:22px;
+background:red;
+border:1px solid #fff;
+border-radius:3px;
+font-weight:bold;
+width:100%;
+padding:3px;}
+
+.bt1:hover{color:#fff;
+text-size:19pt;
+background:green;
+border:1px solid #fff;
+border-radius:3px;
+font-weight:bold;
+width:100%;
+padding:10;
+}
+</style>
+
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<div class="container">
+<h3><b>Estrenos</b></h3>
+<div class="single-item">
+<a href="go:drstrange2"><img class="img-responsive" src="https://dl.dropboxusercontent.com/s/tmcvvqqnum86epl/Dr%20strange%202.jpg"></a>
+<a href="go:spinoway"><img class="img-responsive" src="https://dl.dropboxusercontent.com/s/hxv8914e96f3wcx/spiderman%20no%20way%20home.jpg"></a>
+<a href="go:hotelt4"><img class="img-responsive" src="https://dl.dropboxusercontent.com/s/orynrn669tcw2ul/hotel%20transilvania%204.jpg"></a>
+<a href="go:dune"><img class="img-responsive" src="https://dl.dropboxusercontent.com/s/dn08xn8jetgmplp/dune.jpg"></a>
+<a href="go:finch"><img class="img-responsive" src="https://dl.dropboxusercontent.com/s/88shk9efqcsl4df/finch.jpg"></a>
+<a href="go:sealteam"><img class="img-responsive" src="https://dl.dropboxusercontent.com/s/2dzewfjyn6fa860/seal%20team.jpg"></a>
+<a href="go:eternals"><img class="img-responsive" src="https://dl.dropboxusercontent.com/s/mevx2z1pmhg9wc8/eternals.jpg"></a>
+<a href="go:encanto"><img class="img-responsive" src="https://dl.dropboxusercontent.com/s/40kjy3idt8x2xbf/encanto%20app.jpg"></a>
+<a href="go:matrix4"><img class="img-responsive" src="https://dl.dropboxusercontent.com/s/q9wuo6rovq92snp/matrix%20resurrecciones.jpg"></a>
+<a href="go:venom2"><img class="img-responsive" src="https://dl.dropboxusercontent.com/s/bz42mo2d95co8ea/Venom%20carnage%20liberado.jpg"></a>
+
+<a href="go:rf10"><img class="img-responsive" src="https://dl.dropboxusercontent.com/s/19k8cx96hfv2s5t/rapidos%20y%20furiosos%209.jpg"></a>
+
+
+
+</div>
+
+<br><br>
+<play>
+<h3><b>Acción</b></h3>
+<a href="go:accion4"><button class="bt1"><b>Ver Más</b></button></a>
+</play>
+<div class="variable-width">
+<a href="go:blackjack"><img class="img-responsive" src="https://dl.dropboxusercontent.com/s/1izsaehd2i5m2j0/21%20black%20jack.jpg"></a>
+<a href="go:estacionz"><img class="img-responsive" src="https://dl.dropboxusercontent.com/s/zl7pwu4j7li1gax/estacion%20zombie%202.jpg"></a>
+<a href="go:mutantes"><img class="img-responsive" src="https://dl.dropboxusercontent.com/s/tmbhwxerg1sbilx/los%20nuevos%20mutantes.jpg"></a>
+<a href="go:labestia"><img class="img-responsive" src="https://dl.dropboxusercontent.com/s/s7lefahpp4jb6vr/the%20beast.jpg"></a>
+<a href="go:ladeuda"><img class="img-responsive" src="https://dl.dropboxusercontent.com/s/wsnuuddshpd321r/la%20deuda%202.jpg"></a>
+<a href="go:legacy"><img class="img-responsive" src="https://dl.dropboxusercontent.com/s/3tiypoe5rto9nw6/legacy.jpg"></a>
+<a href="go:diascrimen"><img class="img-responsive" src="https://dl.dropboxusercontent.com/s/ypjmbv0q8co4pej/los%20ultimos%20dias%20del%20crimen.jpg"></a>
+<a href="go:lacaceria"><img class="img-responsive" src="https://dl.dropboxusercontent.com/s/li625ua9lllm333/monster%20hunter.jpg"></a>
+<a href="go:rogue"><img class="img-responsive" src="https://dl.dropboxusercontent.com/s/c4mps6tm1m5vfvr/Rogue.jpg"></a>
+</div><!--variable end-->
+<play>
+<h3><b>Infantiles</b></h3>
+<a href="go:infantil4"><button class="bt1"><b>Ver Más</b></button></a>
+</play>
+<div class="variable-width">
+
+<a href="go:aladin"><img class="img-responsive" src="https://dl.dropboxusercontent.com/s/xshu6mu1qymzoka/aladdin.jpg"></a>
+<a href="go:damavagabu"><img class="img-responsive" src="https://dl.dropboxusercontent.com/s/sjuyapbx3acwfn4/la%20dama%20y%20el%20vagabundo.jpg"></a>
+<a href="go:addams"><img class="img-responsive" src="https://dl.dropboxusercontent.com/s/frrzap0mgdcmlit/la%20familia%20addams.jpg"></a>
+<a href="go:pasosecre"><img class="img-responsive" src="https://dl.dropboxusercontent.com/s/ouxqk1qs9nvdeqi/la%20leyenda%20del%20paso%20secreto.jpg"></a>
+<a href="go:mascotas1"><img class="img-responsive" src="https://dl.dropboxusercontent.com/s/23gfak1qzwtcea7/mascotas.jpg"></a>
+<a href="go:mascotas2"><img class="img-responsive" src="https://dl.dropboxusercontent.com/s/gtq340jumr8oqp4/mascotas%202.jpg"></a>
+<a href="go:malefica1"><img class="img-responsive" src="https://dl.dropboxusercontent.com/s/iwql93sskvre0vp/mal%C3%A9fica.jpg"></a>
+<a href="go:malefica2"><img class="img-responsive" src="https://dl.dropboxusercontent.com/s/1tv6atqr3hifxi5/mal%C3%A9fica%202.jpg"></a>
+<a href="go:perdiopan"><img class="img-responsive" src="https://dl.dropboxusercontent.com/s/418kss0hmpx7rbm/quien%20perdi%C3%B3%20un%20panda.jpg"></a>
+</div><!--variable end-->
+<play>
+<h3><b>Marvel-DC</b></h3>
+<a href="go:marvel3"><button class="bt1"><b>Ver Más</b></button></a>
+</play>
+<div class="variable-width">
+<a href="go:bloodshot"><img class="img-responsive" src="https://dl.dropboxusercontent.com/s/t9zy141bxh1gerb/bloodshot.jpg"></a>
+<a href="go:mujermara"><img class="img-responsive" src="https://dl.dropboxusercontent.com/s/dgdgjtydxtc8ymd/la%20mujer%20maravilla.jpg"></a>
+<a href="go:capamerica"><img class="img-responsive" src="https://dl.dropboxusercontent.com/s/hwslrdbznmqq3yg/Capitan%20america%201%20el%20primer%20vengador.jpg"></a>
+<a href="go:capmarvel"><img class="img-responsive" src="https://dl.dropboxusercontent.com/s/h4emk21lg29tyfo/Capitana%20marvel.jpg"></a>
+</div><!--variable end-->
+<play>
+<h3><b>Sagas</b></h3>
+<a href="go:sagas3"><button class="bt1"><b>Ver Más</b></button></a>
+</play>
+<div class="variable-width">
+<a href="go:hobbit1"><img class="img-responsive" src="https://dl.dropboxusercontent.com/s/a093it7ev8sda74/el%20hobbit%201.jpg"></a>
+<a href="go:hobbit2"><img class="img-responsive" src="https://dl.dropboxusercontent.com/s/fjub6tjmohzd5ul/el%20hobbit%202.jpg"></a>
+<a href="go:hobbit3"><img class="img-responsive" src="https://dl.dropboxusercontent.com/s/xa54on0mtmj8y6y/el%20hobbit%203.jpg"></a>
+<a href="go:anillos1"><img class="img-responsive" src="https://dl.dropboxusercontent.com/s/msqvgd0l0zjdfq9/el%20se%C3%B1or%20de%20los%20anillos%201.jpg"></a>
+<a href="go:anillos2"><img class="img-responsive" src="https://dl.dropboxusercontent.com/s/xi41r6lg6qx5umw/el%20se%C3%B1or%20de%20los%20anillos%202.jpg"></a>
+<a href="go:anillos3"><img class="img-responsive" src="https://dl.dropboxusercontent.com/s/db7p0qf97aam88u/el%20se%C3%B1or%20de%20los%20anillos%203.jpg"></a>
+</div><!--variable end-->
+<play>
+<h3><b>Comedia</b></h3>
+<a href="go:comedia4"><button class="bt1"><b>Ver Más</b></button></a>
+</play>
+<div class="variable-width">
+<a href="go:valentines"><img class="img-responsive" src="https://dl.dropboxusercontent.com/s/1ud43kl6l7xr4m7/a%20valentines%20match.jpg"></a>
+<a href="go:ahitencarg"><img class="img-responsive" src="https://dl.dropboxusercontent.com/s/ax2t63zmscc40wp/ahi%20te%20encargo.jpg"></a>
+<a href="go:amorcuadra"><img class="img-responsive" src="https://dl.dropboxusercontent.com/s/lgr89l7tlpbdagp/amor%20al%20cuadrado.jpg"></a>
+<a href="go:amorcalend"><img class="img-responsive" src="https://dl.dropboxusercontent.com/s/ouvp444jqkiercp/amor%20de%20calendario.jpg"></a>
+<a href="go:amorazar"><img class="img-responsive" src="https://dl.dropboxusercontent.com/s/znxa38s4klcogpm/amor%20boda%20azar.jpg"></a>
+<a href="go:bigtime"><img class="img-responsive" src="https://dl.dropboxusercontent.com/s/2zowohsglhl97qj/big%20time%20adolescence.jpg"></a>
+</div><!--variable end-->
+<play>
+<h3><b>Drama y Romance</b></h3>
+<a href="go:drama4"><button class="bt1"><b>Ver Más</b></button></a>
+</play>
+<div class="variable-width">
+<a href="go:hearts"><img class="img-responsive" src="https://dl.dropboxusercontent.com/s/ius3ys3eh65641f/2%20heart.jpg"></a>
+<a href="go:365"><img class="img-responsive" src="https://dl.dropboxusercontent.com/s/lax677ajljg6vxb/365%20dni.jpg"></a>
+<a href="go:aftermil"><img class="img-responsive" src="https://dl.dropboxusercontent.com/s/6yx6ddtlzwz3lh4/after%20en%20mil%20pedazos.jpg"></a>
+<a href="go:allbright"><img class="img-responsive" src="https://dl.dropboxusercontent.com/s/z1hgr7at4wist5c/all%20the%20bright%20places.jpg"></a>
+</div><!--variable end-->
+<play>
+<h3><b>Terror y Suspenso</b></h3>
+<a href="go:terror4"><button class="bt1"><b>Ver Más</b></button></a>
+</play>
+<div class="variable-width">
+<a href="go:amigosmuer"><img class="img-responsive" src="https://dl.dropboxusercontent.com/s/03uu4vbuqdyihs8/todos%20mis%20amigos%20estan%20muertos.jpg"></a>
+<a href="go:gruta"><img class="img-responsive" src="https://dl.dropboxusercontent.com/s/0l6f1liwwwkudp9/A%20gruta.jpg"></a>
+<a href="go:aftermidn"><img class="img-responsive" src="https://dl.dropboxusercontent.com/s/ff707lh0qi08009/after%20midnight.jpg"></a>
+<a href="go:amulet"><img class="img-responsive" src="https://dl.dropboxusercontent.com/s/fb08sldafsrf6l5/Amulet.jpg"></a>
+</div><!--variable end-->
+<play>
+<h3><b>Colombianas</b></h3>
+<a href="#"><button class="bt1"><b>Ver Más</b></button></a>
+</play>
+<div class="variable-width">
+<a href="go:sintetas"><img class="img-responsive" src="https://dl.dropboxusercontent.com/s/cwcbwy4ac8tqu1u/sin%20tetas%20no%20hay%20paraiso.jpg"></a>
+<a href="go:rosariotij"><img class="img-responsive" src="https://dl.dropboxusercontent.com/s/mvklj2zfw8rg82y/rosario%20tijeras.jpg"></a>
+<a href="go:elparamo"><img class="img-responsive" src="https://dl.dropboxusercontent.com/s/r4eiub6fdeuadlz/el%20p%C3%A1ramo%20la%20pelicula.jpg"></a>
+</div><!--variable end-->
+<play>
+<h3><b>Animes</b></h3>
+<a href="#"><button class="bt1"><b>Ver Más</b></button></a>
+</play>
+<div class="variable-width">
+<a href="go:superbroly"><img class="img-responsive" src="https://dl.dropboxusercontent.com/s/ltx31bfpzdmj1dq/dragon%20ball%20super%20broly.jpg"></a>
+<a href="go:mklegends"><img class="img-responsive" src="https://dl.dropboxusercontent.com/s/l3fsc2vn2wzaevs/mortal%20kombal%20la%20venganza%20de%20scorpion.jpg"></a>
+<a href="go:altered"><img class="img-responsive" src="https://dl.dropboxusercontent.com/s/71xpyk0a894r2xn/altered%20carbon%20reenfundados.jpg"></a>
+<a href="go:ligajusti"><img class="img-responsive" src="https://dl.dropboxusercontent.com/s/gntjiig7xsoa2l6/justice%20league%20dark%20apokolips.jpg"></a>
+</div><!--variable end-->
+
+
+
+</div><!--main end-->
+</div><!--container end-->
+<!-- partial -->
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.5.9/slick.js'></script><script  src="./script.js"></script>
+
+
+<script>
+$('.single-item').slick({
+  dots: true,
+  arrows: false,
+  mobileFirst: true,
+  autoplay: true,
+  fade: true,
+  cssEase: 'ease'
+  
+});
+$('.variable-width').slick({
+  dots: false,
+  arrows: false,
+  infinite: true,
+  autoplay: true,
+  speed: 200,
+  slidesToShow: 6,
+  centerMode: false,
+  variableWidth: false,
+  centerPadding:'50px'
+});
+</script>
+
+
+
+
+</body>
+</html>

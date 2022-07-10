@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Buscador MegaPlay!</title>
+    <title>Ottplayer Plus</title>
 
     <script src="https://kit.fontawesome.com/41bcea2ae3.js" crossorigin="anonymous"></script>
 
@@ -25,6 +25,7 @@
 
 body{
     background: #020202;
+    cursor: pointer;
 }
 
 header{
@@ -54,9 +55,12 @@ header{
     margin-top: 30px;
     justify-content: space-around;
     padding-right: 20px;
+    
 }
 
-
+a{
+    text-decoration: none;
+}
 
 .header-content{
     max-width: 1200px;
@@ -67,8 +71,8 @@ header{
 }
 
 .logo img{
-    height: 100px;
-    margin: -5px;
+    height: 70px;
+    margin: 5px;
     
     
     
@@ -129,7 +133,7 @@ header{
 }
 
 #ctn-icon-search i{
-    font-size: 30px;
+    font-size: 35px;
     color: #e7e2e2;
     cursor: pointer;
     transition: all 300ms;
@@ -280,6 +284,21 @@ header{
 </style>
 
 
+<script type="text/javascript">
+$(document).ready(function () {
+    //Disable cut copy paste
+    $('body').bind('cut copy paste', function (e) {
+        e.preventDefault();
+    });
+   
+    //Disable mouse right click
+    $("body").on("contextmenu",function(e){
+        return false;
+    });
+});
+</script>
+
+
 </head>
 <body>
 
@@ -288,11 +307,11 @@ header{
 
         <div class="header-content">    
     <div class="logo">
-        <img src="https://dl.dropboxusercontent.com/s/er870zabxgodb4x/netprime%204.png" alt="Netprime" class="headerLogo">
+        <img src="https://dl.dropboxusercontent.com/s/57r5vzkwv4e0ert/icono%20ottplayer%20plus.png" alt="Netprime" class="headerLogo"><span style="color: #fff; font-size: 28px; margin-bottom: 35px;">Ottplayer</span><span style="color: purple; font-size: 30px;"> Plus</span>
     </div>            
             <div class="menu" id="show-menu">
                 <a href="#"><p>Inicio</p></a>
-                <a href="#"><p>peliculas</p></a>
+                <a href="peliculas2.html"><p>peliculas</p></a>
                 <a href="smallville.html"><p>Series</p></a>
                 <a href="#"><p>Documentales</p></a>
             </div>
@@ -735,6 +754,8 @@ function buscador_interno(){
 body{
 
 background: #000000;
+cursor: pointer;
+
 }
 .container{
   background:transparent;
@@ -766,7 +787,7 @@ h3{
 .single-item img{
     width:100%;
 	
-	height:700px;
+	height:530px;
     padding-right:2px;
 	display:flex;
 	
@@ -820,18 +841,11 @@ padding:10;
 <div class="container">
 <h3><b>Estrenos</b></h3>
 <div class="single-item">
-<a href="https://dl.dropboxusercontent.com/s/3drq67ql4ywrzml/Mul%C3%A1n.mp4"><img class="img-responsive" src="https://dl.dropboxusercontent.com/s/tmcvvqqnum86epl/Dr%20strange%202.jpg"></a>
-<a href="https://dl.dropboxusercontent.com/s/3drq67ql4ywrzml/Mul%C3%A1n.mp4"><img class="img-responsive" src="https://dl.dropboxusercontent.com/s/hxv8914e96f3wcx/spiderman%20no%20way%20home.jpg"></a>
-<a href="https://dl.dropboxusercontent.com/s/3drq67ql4ywrzml/Mul%C3%A1n.mp4"><img class="img-responsive" src="https://dl.dropboxusercontent.com/s/orynrn669tcw2ul/hotel%20transilvania%204.jpg"></a>
-<a href="https://dl.dropboxusercontent.com/s/3drq67ql4ywrzml/Mul%C3%A1n.mp4"><img class="img-responsive" src="https://dl.dropboxusercontent.com/s/dn08xn8jetgmplp/dune.jpg"></a>
-<a href="https://dl.dropboxusercontent.com/s/3drq67ql4ywrzml/Mul%C3%A1n.mp4"><img class="img-responsive" src="https://dl.dropboxusercontent.com/s/88shk9efqcsl4df/finch.jpg"></a>
-<a href="https://dl.dropboxusercontent.com/s/3drq67ql4ywrzml/Mul%C3%A1n.mp4"><img class="img-responsive" src="https://dl.dropboxusercontent.com/s/2dzewfjyn6fa860/seal%20team.jpg"></a>
-<a href="https://dl.dropboxusercontent.com/s/3drq67ql4ywrzml/Mul%C3%A1n.mp4"><img class="img-responsive" src="https://dl.dropboxusercontent.com/s/mevx2z1pmhg9wc8/eternals.jpg"></a>
-<a href="https://dl.dropboxusercontent.com/s/3drq67ql4ywrzml/Mul%C3%A1n.mp4"><img class="img-responsive" src="https://dl.dropboxusercontent.com/s/40kjy3idt8x2xbf/encanto%20app.jpg"></a>
-<a href="https://dl.dropboxusercontent.com/s/3drq67ql4ywrzml/Mul%C3%A1n.mp4"><img class="img-responsive" src="https://dl.dropboxusercontent.com/s/q9wuo6rovq92snp/matrix%20resurrecciones.jpg"></a>
-<a href="https://dl.dropboxusercontent.com/s/3drq67ql4ywrzml/Mul%C3%A1n.mp4"><img class="img-responsive" src="https://dl.dropboxusercontent.com/s/bz42mo2d95co8ea/Venom%20carnage%20liberado.jpg"></a>
+<a href="https://dl.dropboxusercontent.com/s/3drq67ql4ywrzml/Mul%C3%A1n.mp4"><img class="img-responsive" src="https://dl.dropboxusercontent.com/s/x8sur3hribt792u/banner%20sipderman%20ottplayer%202.jpg"></a>
+<a href="https://dl.dropboxusercontent.com/s/3drq67ql4ywrzml/Mul%C3%A1n.mp4"><img class="img-responsive" src="https://dl.dropboxusercontent.com/s/rft3cul2jw7oiq8/banner%20el%20hombre%20de%20toronto.jpg"></a>
+<a href="https://dl.dropboxusercontent.com/s/3drq67ql4ywrzml/Mul%C3%A1n.mp4"><img class="img-responsive" src="https://dl.dropboxusercontent.com/s/8nsrtzihwpfdcqs/banner%20sipderman%20ottplayer.jpg"></a>
+<a href="https://dl.dropboxusercontent.com/s/3drq67ql4ywrzml/Mul%C3%A1n.mp4"><img class="img-responsive" src="https://dl.dropboxusercontent.com/s/8nsrtzihwpfdcqs/banner%20sipderman%20ottplayer.jpg"></a>
 
-<a href="go:rf10"><img class="img-responsive" src="https://dl.dropboxusercontent.com/s/19k8cx96hfv2s5t/rapidos%20y%20furiosos%209.jpg"></a>
 
 
 
@@ -975,7 +989,19 @@ $('.variable-width').slick({
 });
 </script>
 
-
+<script type="text/javascript">
+$(document).ready(function () {
+    //Disable cut copy paste
+    $('body').bind('cut copy paste', function (e) {
+        e.preventDefault();
+    });
+   
+    //Disable mouse right click
+    $("body").on("contextmenu",function(e){
+        return false;
+    });
+});
+</script>
 
 
 </body>

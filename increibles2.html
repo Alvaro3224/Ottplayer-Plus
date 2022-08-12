@@ -1,88 +1,82 @@
 <!DOCTYPE html>
 <head><title></title>
 
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">   
-
 <style>
+  
+@import url(https://fonts.googleapis.com/css?family=Source+Code+Pro:400,300,700,600,500);
 
-@import url('https://fonts.googleapis.com/css?family=Raleway:100,400');
-body {
-  font-family: 'Raleway', sans-serif;
-  font-weight: thin;
-  background: black;
+html,body{
+	width: 100%;
+	height: 100%;
 }
 
 body{
-  background-image: url(https://dl.dropboxusercontent.com/s/7qp8uvrxhpbphks/fondo%20peliculas%202.jpg);
-  background-size: cover;
-  background-repeat: no repeat;
-
+	position: relative;
+	margin: 0;
+	padding: 0;
+	background-color: #191919;
 }
 
-h1{
- font-size: 80px;
- color: #fff;
- margin-left: 50px;
- margin-top: 90px;
-
+#counter{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 300px;
+	height: 300px;
+	margin: -150px 0 0 -150px;
 }
 
-p{
-    width: 47%;
-    font-size: 20px;
-    color: #fff;
-    margin-left: 52px;
+#counter .disp{
+  font-family: 'Source Code Pro', monospace;
+	text-align: center;
+	font-size: 80px;
+	line-height: 80px;
+	letter-spacing: 6px;
+	color: #EEE;
 }
-
-span{
-    margin-left: 50px;
-    margin-top: 30px;
-}
-
-.button{
-    width: 20px;
-    padding: 10px 80px 10px 80px;
-    background-color: black;
-    border: 1px solid #fff;
-    margin-top: 30px;
-    border-radius: 6px;
-    justify-content: center;
-    margin-left: 50px;
-    
-}
-
-
-
-.button a{
-    font-size: 30px;
-    text-decoration: none;
-    color: #fff;
-    justify-content: center;
-    text-align: center;
-    display: flex;
-}
-
-
   
   
+  </style>
 
 
 
-</style>
 
 
 </head>
 <body>
 
-<h1>The Incredibles 2</h1>
-
-<span style="font-size: 24px; color:lawngreen;">90% para tí</span><span style="font-size: 24px; color:rgb(211, 228, 228);">2022</span><span style="font-size: 24px; color:rgb(211, 228, 228);">2 h 30 min</span><span style="font-size: 24px; color:#fff000;"><b>HD</b></span><span style="font-size: 24px; color:red;"><b>+ 10 Años</b></span>
-
-<p>Helen is called on to lead a campaign to bring Supers back, while Bob navigates the day-to-day heroics of 'normal' life at home with Violet, Dash and baby Jack-Jack - whose superpowers are about to be discovered.</p>
-
-<div class="button">
-    <a href="https://dl.dropboxusercontent.com/s/wtnezf39d82x22f/Temp%201%20cap%2021.mp4"><center><b>Reproducir</b></center></a>
+<div id="counter">
+  <p class="disp">00</p>
 </div>
+  
+ 
+  
 
 </body>
+
+
+ <script>
+  
+  
+ $(function(){
+	
+	var SEC = 1000;
+	var LIMIT = 90000;
+	var cnt = 50000;
+	var disp = $('#counter .disp');
+	
+	setInterval(countup, SEC);
+
+	function countup(){
+		var cnt_str = (cnt<10) ? '0'+cnt : ''+cnt;
+		disp.html(cnt_str);
+		cnt = (cnt+1)%LIMIT;
+	}
+
+});
+  
+  
+</script>
+
+
 </html>

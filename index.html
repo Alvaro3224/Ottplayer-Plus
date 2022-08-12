@@ -1,132 +1,82 @@
 <!DOCTYPE html>
-<head><title>Ottplayer Plus</title>
+<head><title></title>
 
 <style>
+  
+@import url(https://fonts.googleapis.com/css?family=Source+Code+Pro:400,300,700,600,500);
 
-
+html,body{
+	width: 100%;
+	height: 100%;
+}
 
 body{
-  background-image:url(https://dl.dropboxusercontent.com/s/h6vrucuujhma2q3/47-478101_m.jpg);
-    
-  
+	position: relative;
+	margin: 0;
+	padding: 0;
+	background-color: #191919;
 }
 
-.container{
-   width: 90%;
-    height: 100%;
-   display: flex;
-   flex-direction: column;
-   margin: auto;
-    
-    
-}
-  
-.container img{
-   width: 200px;
-   display: flex;
-   flex-direction: column;
-   margin: auto;
-}  
-
-input, button{
-    width: 200px;
-      height: 45px;
-      font-size: 1.2rem;
-      padding: 0 20px;
-      border-radius: 5px;
-    margin-top: -4px;
+#counter{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 300px;
+	height: 300px;
+	margin: -150px 0 0 -150px;
 }
 
-input{
-   color: #fff;
-  	display: block;
-  	border: 1px solid rgba(255, 255, 255, 0.9);
-  	background-color: rgba(255, 255, 255, 0.0);
-  	border-radius: 5px;
-  	transition: all linear 0.5s;
-    text-align: center;
-}
-
-button{
-   width: 150px;
-	height: 50px;
-	display: block;
-	border: 1px solid rgba(255, 255, 255, 0.4);
-  	background-color: #fff;
-  	border-radius: 5px;
-  	margin: auto;
-  	color: black;
-  	font-size: 16px;
-  	font-weight: bold;
-  	cursor: pointer;
-    transition: all 0.5s linear;
-    margin-bottom: 10px;
+#counter .disp{
+  font-family: 'Source Code Pro', monospace;
+	text-align: center;
+	font-size: 80px;
+	line-height: 80px;
+	letter-spacing: 6px;
+	color: #EEE;
 }
   
- 
+  
+  </style>
 
-a{
-  font-family: 'roboto', sans-serif;
-  margin: 20px auto;
-}
 
-  h3{
-    color: #fff;
-    height: 10px;
-  }
-
-</style>
 
 
 
 </head>
 <body>
-  
-<br>
-  
-<div>
-<div class="container">
-<img src="https://dl.dropboxusercontent.com/s/57r5vzkwv4e0ert/icono%20ottplayer%20plus.png" alt="logotipo" border="0">
-<br><br><br>
-<div class="col-md-8 col-md-offset-2">
-<center>
-  
-  <br><br><br>
-         
-         <input type="text" class="form-control" name="" id="email" placeholder="Usuario"><br/>
-         
-         <input type="password" class="form-control" name="" id="pass" placeholder="Contraseña"><br/><br><br><br>
-         <button type="button" onclick="login()" class="form-control btn btn-primary">Iniciar sesión</button>     
-         
-         
 
+<div id="counter">
+  <p class="disp">00</p>
 </div>
-</div>
+  
+ 
+  
+
+</body>
 
 
+ <script>
+  
+  
+ $(function(){
+	
+	var SEC = 1000;
+	var LIMIT = 90000;
+	var cnt = 50000;
+	var disp = $('#counter .disp');
+	
+	setInterval(countup, SEC);
 
-<script>
+	function countup(){
+		var cnt_str = (cnt<10) ? '0'+cnt : ''+cnt;
+		disp.html(cnt_str);
+		cnt = (cnt+1)%LIMIT;
+	}
 
-var a=localStorage.getItem("abc");
-if(a=="save password"){
-window.location.href="go:tienda7";}
-function login(){
-var email=document.getElementById("email").value;
-var pass=document.getElementById("pass").value;
-var email1=localStorage.getItem("email1");
-var pass1=localStorage.getItem("pass1");
-if(email == "Alvaro" && pass == "3224" || email == "Aleja" && pass == "2712" || email == "Matt" && pass == "2022"){
-localStorage.setItem("code","secret");
-window.location.href="go:tienda7";}
-else{alert("Error en la contraseña o nombre de usuario")}}
-
-
-
-
-
+});
+  
+  
 </script>
 
 
-
-</body>
 </html>
